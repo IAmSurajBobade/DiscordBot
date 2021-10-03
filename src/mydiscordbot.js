@@ -1,13 +1,12 @@
 require('dotenv').config();
 
-const { Client, Intents } = require('discord.js');
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+const discordBot = require('./resources/discordClient.js');
 
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+discordBot.client.on('ready', () => {
+  console.log(`Logged in as ${discordBot.client.user.tag}!`);
 });
 
-client.on('interactionCreate', async interaction => {
+discordBot.client.on('interactionCreate', async interaction => {
   if (!interaction.isCommand()) return;
 
   if (interaction.commandName === 'ping') {
@@ -15,4 +14,4 @@ client.on('interactionCreate', async interaction => {
   }
 });
 
-client.login(process.env.DISCORD_BOT_TOKEN);
+discordBot.client.login(process.env.DISCORD_BOT_TOKEN);
