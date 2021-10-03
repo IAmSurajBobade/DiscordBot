@@ -69,3 +69,8 @@ jobs:
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
+      
+    # Deploy app to Heroku
+    - name: Deploy to Heroku
+      uses: AkhileshNS/heroku-deploy@v3.12.12
+
